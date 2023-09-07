@@ -1,0 +1,29 @@
+.status-selected {
+  display: inline-block;
+  padding: 3px 14px;
+  text-align: center;
+  border: 3px solid $green;
+  background-color: #9E77CC;
+  border: 3px solid $purple;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+
+  overflow: scroll;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.status-unselected {
+  display: inline-block;
+  padding: 3px 14px;
+  text-align: center;
+  border: 3px solid $green;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+
+  overflow: scroll;
+  white-space: nowrap;
+  text-decoration: none;
+}

@@ -11,7 +11,7 @@ class ChecklistsController < ApplicationController
     @checklist = Checklist.new(checklist_params)
     @checklist.user_id = current_user.id
     if @checklist.save
-      redirect_to checklists_path(@checklist), notice: 'Checklist created successfully'
+      redirect_to checklist_path(@checklist), notice: 'Checklist created successfully'
     else
       render :new
     end

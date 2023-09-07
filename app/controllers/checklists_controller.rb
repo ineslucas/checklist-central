@@ -17,6 +17,10 @@ class ChecklistsController < ApplicationController
     end
   end
 
+  def show
+    @checklist = Checklist.find(params[:id])
+  end
+
   private
 
   def checklist_params

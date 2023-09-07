@@ -1,2 +1,23 @@
+<h1 class="page_title">checklist <br> central </h1>
+
 <h1>checklists#index</h1>
 <p>all checklists</p>
+
+<div class="status-selected">all</div>
+
+
+<% @checklists.each do |checklist| %>
+
+  <%# classes wrapping up title and description %>
+  <div>
+    <%= link_to checklist_path(checklist) do %>
+      <h2 class="todo_list_title"><%= checklist.title %></h2>
+      <p class="todo_list_sub_title"><%= checklist.description %></p>
+    <% end %>
+  </div>
+
+<% end %>
+
+<div class="btn btn-primary" style="color: white;">
+  <%= link_to "New Checklist", new_checklist_path %>
+</div>

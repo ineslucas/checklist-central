@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   # Show all checklists
   # get '/checklists', to: 'checklists#index'
 
-  resources :checklists, only: [:index, :new, :create]
+  resources :checklists, only: [:index, :new, :create, :show]
 end

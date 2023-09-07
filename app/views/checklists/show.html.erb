@@ -1,2 +1,21 @@
-<p>checklists#show</p>
-<p>page for each checklist</p>
+<h2 class="todo_list_title"><%= @checklist.title %></h2>
+<p class="todo_list_sub_title"><%= @checklist.description %></p>
+
+<div id="tasks_wrapper">
+  <%# the issue is NOT tasks_wrapper in itself%>
+  <%# The line below iterates through each task in the checklist's tasks collection and renders the _task.html.erb partial view for each task, creating the HTML structure for each task's display. %>
+  <%= render @checklist.tasks %>
+
+  <%# this form helps to create a new task for the present checklist %>
+  <%= render "tasks/form" %>
+  <%# when the form is inside tasks_wrapper, you can target it - outside no. But why? %>
+  <%# Because the form class is outlined INSIDE the id tasks_wrapper.%>
+</div>
+
+
+<div class="links">
+  <%= link_to 'Edit', edit_checklist_path(@checklist) %>
+  <%= link_to 'Back', url_for(:back) %>
+  <%= link_to "Delete", checklist_path(@checklist), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= link_to 'All lists', checklists_path %>
+</div>

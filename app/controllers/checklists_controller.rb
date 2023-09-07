@@ -21,6 +21,26 @@ class ChecklistsController < ApplicationController
     @checklist = Checklist.find(params[:id])
   end
 
+  def edit
+    @checklist = Checklist.find(params[:id])
+  end
+
+  def update
+    @checklist = Checklist.find(params[:id])
+    @checklist.update(checklist_params)
+    redirect_to checklist_path(@checklist)
+  end
+
+  def destroy
+    @checklist = Checklist.find(params[:id])
+    if @checklist.destroy
+      flash[:success] = "Checklist has been deleted"
+    else
+      flash[:error] = "Checklist could not be deleted"
+    end
+    redirect_to root_url, status: :see_other
+  end
+
   private
 
   def checklist_params

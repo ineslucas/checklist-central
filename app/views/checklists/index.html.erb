@@ -3,7 +3,8 @@
 <h1>checklists#index</h1>
 <p>all checklists</p>
 
-<div class="status-selected">all</div>
+<div data-controller="filter" class="status-selected">all</div>
+<div></div>
 
 
 <% @checklists.each do |checklist| %>

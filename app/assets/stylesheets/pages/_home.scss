@@ -1,1 +1,93 @@
 // Specific CSS for your home-page
+
+.main_title{ // "Checklist Central"
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 42px;
+  letter-spacing: -0.333333px;
+  color: #FFFFFF;
+}
+
+.checklists-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  grid-gap: 16px;
+}
+
+@media(max-width: 992px) {
+  .checklists-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .checklists-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.checklist_container{
+  background-color: $purple;
+  border-radius: 30px;
+  aspect-ratio: 1 / 1;
+  padding: 30px;
+  min-height: 275px; /* Adjust this value based on your needs */
+}
+
+/* New CSS classes for each category */
+
+.gym {
+  background-color: $purple; /* Replace with your desired color */
+}
+
+.airport {
+  background-color: $yellow; /* Replace with your desired color */
+}
+
+.roadtrip {
+  background-color: $teal; /* Replace with your desired color */
+}
+
+.other {
+  background-color: $magenta; /* Replace with your desired color */
+}
+
+
+// for links in the checklist_container
+.checklist_container a {
+  text-decoration: none; /* Removes the underline from links */
+  color: inherit; /* Ensures that the link color matches the surrounding text */
+}
+
+.checklist_title{
+  font-size: 40px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+@media(max-width: 768px) {
+  .checklist_title {
+    font-size: 30px;
+  }
+}
+
+.checklist_description{
+  font-size: 17px;
+  font-weight: 600;
+}
+
+@media(max-width: 768px) {
+  .checklist_description {
+    font-size: 13px;
+  }
+}
+
+// CSS for all pages
+body {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-color: $dark-black;
+  padding-right: 50px;
+  padding-left: 50px;
+}

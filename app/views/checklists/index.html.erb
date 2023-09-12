@@ -1,24 +1,28 @@
 <h1 class="main_title">checklist <br> central </h1>
 
-<div class="d-flex justify-content-start gap-2">
+<div class="filters-container">
   <div data-controller="filter" class="status-selected">all</div>
   <div class="status-unselected">gym</div>
   <div class="status-unselected">airport</div>
   <div class="status-unselected">other</div>
 </div>
 
+<%# class wrapping all instances of checklist %>
+<div class="checklists-grid">
+  <% @checklists.each do |checklist| %>
 
-<% @checklists.each do |checklist| %>
+    <%# classes wrapping up title and description %>
+    <div class="checklist_container">
+      <%= link_to checklist_path(checklist) do %>
+        <h2 class="todo_list_title"><%= checklist.title %></h2>
+        <p class="todo_list_sub_title"><%= checklist.description %></p>
+      <% end %>
+    </div>
 
-  <%# classes wrapping up title and description %>
-  <div>
-    <%= link_to checklist_path(checklist) do %>
-      <h2 class="todo_list_title"><%= checklist.title %></h2>
-      <p class="todo_list_sub_title"><%= checklist.description %></p>
-    <% end %>
-  </div>
+  <% end %>
+</div>
 
-<% end %>
+
 
 <div>
   <%= link_to "New Checklist", new_checklist_path %>

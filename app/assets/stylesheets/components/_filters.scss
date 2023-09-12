@@ -1,3 +1,11 @@
+.filters-container{
+  display: flex;
+  justify-content: flex-start; // align the flex items to the start of the container's main axis (horizontally for a row and vertically for a column)
+  gap: 0.5rem; // same as bootstrap's gap-2
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
 .status-selected {
   display: inline-block;
   padding: 3px 14px;

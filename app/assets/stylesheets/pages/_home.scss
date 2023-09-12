@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+
+.main_title{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 42px;
+  letter-spacing: -0.333333px;
+  color: #FFFFFF;
+}
+
+.checklist-container{
+  
+}
+
+// CSS for all pages
+body {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-color: $dark-black;
+  padding-right: 50px;
+  padding-left: 50px;
+}

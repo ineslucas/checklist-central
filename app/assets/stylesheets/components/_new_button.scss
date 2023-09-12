@@ -1,0 +1,24 @@
+.new_checklist_button{
+  // for styling
+  background-color: $barbie-pink;
+  border-radius: 50px;
+  height: 85px;
+  width: 85px;
+  padding: 10px;
+  transition: background-color 0.3s;
+
+  // for positioning
+  position: fixed;
+  right: 45px; /* 20px from the right */
+  bottom: 45px; /* 20px from the bottom */
+  z-index: 10; /* Ensure it stays on top */
+
+  // to center svg within
+  display: flex;          /* Convert the button into a flex container */
+  justify-content: center; /* Center children horizontally */
+  align-items: center;     /* Center children vertically */
+}
+
+svg:hover path {
+  fill: $yellow; /* Change fill color on hover */
+}

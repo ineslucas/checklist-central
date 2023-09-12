@@ -22,8 +22,8 @@
   <% end %>
 </div>
 
-
-
 <div>
-  <%= link_to "New Checklist", new_checklist_path %>
+  <%= link_to new_checklist_path, class:"new_checklist_button" do %>
+     <%= inline_svg 'plus.svg' %>
+  <% end %>
 </div>

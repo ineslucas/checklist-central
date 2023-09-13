@@ -19,9 +19,24 @@
   </div>
 </div>
 
+<%# <div class="links"> %>
+  <%# <%= link_to 'Edit', edit_checklist_path(@checklist) %>
+  <%# <%= link_to 'Back', url_for(:back) %>
+  <%# <%= link_to "Delete", checklist_path(@checklist), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%# </div> %>
+
 <div class="links">
-  <%= link_to 'Edit', edit_checklist_path(@checklist) %>
-  <%= link_to 'Back', url_for(:back) %>
-  <%= link_to "Delete", checklist_path(@checklist), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <%= link_to 'All lists', checklists_path %>
+  <%= link_to edit_checklist_path(@checklist) do %>
+    <i class="fa-regular fa-pen-to-square" style="color: #AB3687;"></i>
+  <% end %>
+
+  <%= link_to url_for(:back) do %>
+    <i class="fas fa-arrow-left" style="color: #AB3687;"></i>
+  <% end %>
+
+  <%= link_to checklist_path(@checklist), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <i class="fas fa-trash" style="color: #AB3687;"></i>
+  <% end %>
+
+  <%# <%= link_to 'All lists', checklists_path %>
 </div>

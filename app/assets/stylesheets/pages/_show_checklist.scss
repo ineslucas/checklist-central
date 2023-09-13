@@ -114,3 +114,17 @@
     background-color: darken($teal, 10%); /* Darkens the teal color a bit on hover */
   }
 }
+
+.links {
+  margin-top: 60px;
+  color: #AB3687;
+  font-size: 30px;
+
+  display: flex;
+  justify-content: center; /* Horizontally center the flex items */
+  gap: 40px; /* Adds a 40px gap between each flex child */
+}
+
+.links a {
+  text-decoration: none; /* Removes the default underline */
+}

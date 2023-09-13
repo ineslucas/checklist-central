@@ -1,10 +1,10 @@
 <%# code below is representing each row - this repeats thanks to code in the show page that does this process for as many task items as there are %>
 
-<div class="row clearfix"> <%# ⛔️ remove clearfix %>
+<div class="task-line"> <%# ⛔️ had clearfix class %>
   <% if task.completed? %>
     <div class="complete">
       <%= link_to completed_checklist_task_path(@checklist, task.id), data: { turbo_method: :patch } do %>
-        <i style="opacity: 0.4;" class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-circle-check" style="color: #6cc8bf;"></i>
       <% end %>
     </div>
     <div class="task">
@@ -12,26 +12,28 @@
     </div>
     <div class="trash">
       <%= link_to checklist_task_path(@checklist, task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <i class="fa-regular fa-trash-can"></i>
+        <i class="fa-regular fa-trash-can" style="color: #6cc8bf;"></i>
       <% end %>
     </div>
   <% else %>
   <%# if the task has not been marked as completed, then show the task content(or title?) in its normal form.  %>
     <div class="complete">
       <%= link_to completed_checklist_task_path(@checklist, task.id), data: { turbo_method: :patch } do %>
-        <i class="fa-solid fa-check"></i>
+        <i class="fa-regular fa-circle" style="color: #6cc8bf;"></i>
       <% end %>
         <%# checklist_task_path(@checklist, task.id) is actually where I want to be redirected to, once the action has been completed %>
 
         <%# It's a route helper method that generates a URL for the destroy action of the TasksController for a specific task belonging to a given Checklist object.
         The @checklist object is passed in as an argument to the route helper method to generate the correct URL. %>
     </div>
+
     <div class="task">
       <p><%= task.title %></p>
     </div>
+
     <div class="trash">
       <%= link_to checklist_task_path(@checklist, task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <i class="fa-regular fa-trash-can"></i>
+        <i class="fa-regular fa-trash-can" style="color: #6cc8bf;"></i>
       <% end %>
     </div>
   <% end %>

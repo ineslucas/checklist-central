@@ -1,0 +1,78 @@
+// for all CSS referring to the show page for each checklist & subsequent tasks
+.show-container{
+  display: flex;
+  justify-content: start;
+  margin-top: 60px;
+  gap: 30px; // allows there for the grid gap to be responsive
+}
+
+@media(max-width: 768px) {
+  .show-container{
+    flex-direction: column; /* Stack items on top of each other */
+    align-items: center; /* Optionally center the items horizontally if you want */
+  }
+}
+
+.show-title-container{
+  background-color: $purple;
+  border-radius: 30px;
+  aspect-ratio: 1 / 1;
+  padding: 30px;
+  min-height: 275px;
+  max-width: 330px;
+}
+
+.individual-checklist-title{
+  font-size: 40px;
+  font-weight: 600;
+  line-height: normal;
+  color: $dark-black;
+}
+
+.individual-checklist-description{
+  font-size: 17px;
+  font-weight: 600;
+  color: $dark-black;
+}
+
+#tasks-wrapper{
+  .task-line {
+    display: flex; /* Convert the container to a flex container */
+    justify-content: space-between; /* Horizontally center the flex items */
+    width: 100%;
+    padding-bottom: 30px;
+    .complete{
+      width: 10%;
+      height: 100%;
+      text-align: center;
+      margin-right: 10px;
+      font-size: 20px;
+      color: $teal;
+    }
+
+    .task{
+      width: 80%;
+      P {
+        margin: 0;
+        color: $teal;
+        font-weight: 100;
+        font-size: 20px;
+      }
+    }
+
+    .trash{
+      width: 10%;
+      text-align: center;
+      margin-left: 10px;
+      font-size: 20px;
+    }
+    // for the icons
+    i {
+      color: white;
+      transition: all .4s ease-in-out;
+      &:hover {
+        color: $dark;
+      }
+  }
+  }
+}

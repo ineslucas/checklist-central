@@ -2,6 +2,9 @@
   <div class="show-title-container">
     <h2 class="individual-checklist-title"><%= @checklist.title %></h2>
     <p class="individual-checklist-description"><%= @checklist.description %></p>
+    <div class="new-task-button">
+        <%= inline_svg 'plus_task.svg' %>
+    </div>
   </div>
 
   <div id="tasks-wrapper">

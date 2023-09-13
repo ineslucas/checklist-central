@@ -3,7 +3,8 @@
   display: flex;
   justify-content: start;
   margin-top: 60px;
-  gap: 30px; // allows there for the grid gap to be responsive
+  gap: 40px; // allows there for the grid gap to be responsive
+  padding-right: 0px;
 }
 
 @media(max-width: 768px) {
@@ -20,6 +21,9 @@
   padding: 30px;
   min-height: 275px;
   max-width: 330px;
+
+  // to anchor the + button:
+  position: relative;
 }
 
 .individual-checklist-title{
@@ -73,6 +77,40 @@
       &:hover {
         color: $dark;
       }
+    }
   }
+
+  /* Form styles */
+  #form {
+    max-width: 400px; /* Adjust as necessary */
+    width: 100%;
+    background-color: $teal;
+    border-radius: 15px;
+    padding: 5px;
+  }
+
+  #form input[type="text"] {
+    width: 70%; /* Takes up most of the form space */
+    padding: 10px;
+    border: 3px solid $purple;
+    border-radius: 15px;
+    margin-right: 1%; /* Space between the text field and the submit button */
+    background-color: $light-gray;
+    color: $dark-black; /* This sets the text color inside the input. Adjust if needed. */
+  }
+
+  #form input[type="submit"] {
+    width: 26%; /* Adjust as necessary */
+    background-color: $teal;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    height: 46px;
+    cursor: pointer; /* Hand cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+
+  #form input[type="submit"]:hover {
+    background-color: darken($teal, 10%); /* Darkens the teal color a bit on hover */
   }
 }

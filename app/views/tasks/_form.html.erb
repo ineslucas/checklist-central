@@ -2,6 +2,6 @@
   <%= form_for([@checklist, @checklist.tasks.build]) do |f| %>
     <%= f.text_field :title, placeholder: "New Task" %>
     <%# <%= f.text_field :details, placeholder: "Details" %>
-    <%= f.submit %>
+    <%= f.submit "Add" %>
   <% end %>
 </div>

@@ -22,3 +22,23 @@
 svg:hover path {
   fill: $yellow; /* Change fill color on hover */
 }
+
+.new-task-button{
+  background-color: $green;
+  border-radius: 50px;
+  height: 45px;
+  width: 45px;
+  padding: 10px;
+
+  // for positioning
+  position: absolute;
+  right: 20px; /* 20px from the right */
+  bottom: 0px; /* unnecessary */
+  z-index: 10; /* Ensure it stays on top */
+  transform: translateY(50%); /* This will move it 50% of its own height downwards, effectively centering it on the edge */
+
+  // to center svg within
+  display: flex;          /* Convert the button into a flex container */
+  justify-content: center; /* Center children horizontally */
+  align-items: center;     /* Center children vertically */
+}

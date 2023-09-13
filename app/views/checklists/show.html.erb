@@ -1,21 +1,42 @@
-<h2 class="todo_list_title"><%= @checklist.title %></h2>
-<p class="todo_list_sub_title"><%= @checklist.description %></p>
+<div class="show-container">
+  <div class="show-title-container">
+    <h2 class="individual-checklist-title"><%= @checklist.title %></h2>
+    <p class="individual-checklist-description"><%= @checklist.description %></p>
+    <div class="new-task-button">
+        <%= inline_svg 'plus_task.svg' %>
+    </div>
+  </div>
 
-<div id="tasks_wrapper">
-  <%# the issue is NOT tasks_wrapper in itself%>
-  <%# The line below iterates through each task in the checklist's tasks collection and renders the _task.html.erb partial view for each task, creating the HTML structure for each task's display. %>
-  <%= render @checklist.tasks %>
+  <div id="tasks-wrapper">
+    <%# The line below iterates through each task in the checklist's tasks collection and renders the _task.html.erb partial view for each task, creating the HTML structure for each task's display. %>
+    <%# existing tasks %>
+    <%= render @checklist.tasks %>
 
-  <%# this form helps to create a new task for the present checklist %>
-  <%= render "tasks/form" %>
-  <%# when the form is inside tasks_wrapper, you can target it - outside no. But why? %>
-  <%# Because the form class is outlined INSIDE the id tasks_wrapper.%>
+    <%# form to create new task for present checklist %>
+    <%= render "tasks/form" %>
+    <%# when the form is inside tasks_wrapper, you can target it - outside no. But why? %>
+    <%# Because the form class is outlined INSIDE the id tasks_wrapper.%>
+  </div>
 </div>
 
+<%# <div class="links"> %>
+  <%# <%= link_to 'Edit', edit_checklist_path(@checklist) %>
+  <%# <%= link_to 'Back', url_for(:back) %>
+  <%# <%= link_to "Delete", checklist_path(@checklist), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%# </div> %>
 
 <div class="links">
-  <%= link_to 'Edit', edit_checklist_path(@checklist) %>
-  <%= link_to 'Back', url_for(:back) %>
-  <%= link_to "Delete", checklist_path(@checklist), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <%= link_to 'All lists', checklists_path %>
+  <%= link_to edit_checklist_path(@checklist) do %>
+    <i class="fa-regular fa-pen-to-square" style="color: #AB3687;"></i>
+  <% end %>
+
+  <%= link_to url_for(:back) do %>
+    <i class="fas fa-arrow-left" style="color: #AB3687;"></i>
+  <% end %>
+
+  <%= link_to checklist_path(@checklist), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <i class="fas fa-trash" style="color: #AB3687;"></i>
+  <% end %>
+
+  <%# <%= link_to 'All lists', checklists_path %>
 </div>

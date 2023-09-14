@@ -83,6 +83,32 @@
   }
 }
 
+.progress-container {
+  display: flex;
+  width: 21px;
+  height: 50px;
+  padding: 3px 11px;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 2px solid $green;
+  position: relative; // To position the progress bar inside it
+  overflow: hidden;   // Hide overflowing parts of the progress bar
+}
+
+.progress-bar {
+  position: absolute;  // Absolute positioning in relation to progress-container
+  bottom: 0;           // Align it to the bottom
+  left: 0;             // Start from the leftmost part
+  width: 100%;         // Take the full width of the container
+  background-color: $green;
+  border-radius: 12px;
+  transition: height 0.3s; // Smooth transition for height changes
+}
+
+
+
 // CSS for all pages
 body {
   padding-top: 50px;

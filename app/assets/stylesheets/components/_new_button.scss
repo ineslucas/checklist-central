@@ -34,7 +34,7 @@ svg:hover path {
   position: absolute;
   right: 20px; /* 20px from the right */
   bottom: 0px; /* unnecessary */
-  z-index: 10; /* Ensure it stays on top */
+  z-index: 1; /* Ensure it stays on top */
   transform: translateY(50%); /* This will move it 50% of its own height downwards, effectively centering it on the edge */
 
   // to center svg within

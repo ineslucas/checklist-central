@@ -1,11 +1,16 @@
-<i class="fa-solid fa-bars-staggered menu-icon" id="navicon"></i>
+<div class="navbar-wrapper" data-controller="menu">
+  <%# this.element in the Stimulus controller refers to the element with the data-controller="menu" attribute (in this case, the .navbar-wrapper div). If you want to modify the <i> element, you need to target it specifically. %>
 
-<div id="menu">
-  <div id="menu-items">
-    <a href="/" class="menu-item"> all checklists </a>
-    <a href="/" class="menu-item"> log in </a>
+  <i data-action="click->menu#show" data-menu-target="icon" class="fa-solid fa-bars-staggered menu-icon" id="navicon"></i>
+
+  <div id="menu" class="d-none" data-menu-target="menu">
+    <div id="menu-items">
+      <a href="/checklists" class="menu-item"> all checklists </a>
+      <a href="/" class="menu-item"> log in </a>
+    </div>
+
+    <div id="menu-background-pattern">
+    </div>
   </div>
 
-  <div id="menu-background-pattern">
-  </div>
 </div>

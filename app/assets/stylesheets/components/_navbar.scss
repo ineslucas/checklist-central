@@ -1,13 +1,40 @@
+.navbar-wrapper{
+
+}
+
 #navicon{
   font-size: 30px;
   color: $yellow;
   float: right;
+
+  // positioning above menu:
+  z-index: 4;  /* Ensure the icon stays above other elements */
+  position: relative;  /* z-index only works on positioned elements */
 }
 
+#close-icon {
+  font-size: 40px; // Match the size of the menu icon
+  color: $yellow;
+  float: right;
+
+  // positioning above menu:
+  z-index: 4;  /* Ensure the icon stays above other elements */
+  position: relative;  /* z-index only works on positioned elements */
+}
+
+
 #menu{
-  height: 100vh; //  "viewport height" and is a relative unit of measurement in CSS. 100vh is 100% of view port height.
+  // works like an overlay to all pages:
+  position: fixed;       // Make it fixed positioned to cover the viewport
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 3;           // To ensure it appears above other content
   display: flex;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);  // Optional: Dark background to make it more "modal-like"
+
 }
 
 .menu-item{
@@ -66,4 +93,8 @@
     #ff99e0 60%,
     #AB3687 100%  /* Changing this to magenta */
   );
+}
+
+body.no-scroll {
+  overflow: hidden; // will prevent scrolling when the menu is open
 }

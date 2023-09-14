@@ -4,13 +4,21 @@
   <i data-action="click->menu#show" data-menu-target="icon" class="fa-solid fa-bars-staggered menu-icon" id="navicon"></i>
 
   <div id="menu" class="d-none" data-menu-target="menu">
+
+    <%# logic for visible menu items %>
     <div id="menu-items">
-      <a href="/checklists" class="menu-item"> all checklists </a>
-      <a href="/" class="menu-item"> log in </a>
+      <% if user_signed_in? %>
+        <a href="/checklists" class="menu-item">all checklists</a>
+        <%= link_to "log out", destroy_user_session_path, class: "menu-item" %>
+      <% else %>
+        <a href="/" class="menu-item">home</a>
+        <a href="<%= new_user_session_path %>" class="menu-item">log in</a>
+      <% end %>
     </div>
 
     <div id="menu-background-pattern">
     </div>
+
   </div>
 
 </div>

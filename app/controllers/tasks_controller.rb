@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show] # ensures that users have to be authenticated to access any action in the TasksController except for the show action
   before_action :set_checklist
   before_action :set_task, except: [:create]
     # we don't want it on the create method because it's only after that method has been executed that the ID is created
@@ -28,8 +28,13 @@ class TasksController < ApplicationController
   end
 
   def completed
-    @task.update_attribute(:completed, true)
-    redirect_to @checklist, notice: "Task completed"
+    # Toggle the completed status of the task
+    @task.update_attribute(:completed, !@task.completed)
+
+    # Use a conditional to set an appropriate notice message
+    notice_message = @task.completed ? "Task completed" : "Task marked as incomplete"
+
+    redirect_to @checklist, notice: notice_message
   end
 
   private

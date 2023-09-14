@@ -1,4 +1,6 @@
 class ChecklistsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @checklists = Checklist.all
   end

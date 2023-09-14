@@ -17,6 +17,15 @@
   display: flex;          /* Convert the button into a flex container */
   justify-content: center; /* Center children horizontally */
   align-items: center;     /* Center children vertically */
+
+   /* Add a transition for the transform property to make the scaling smooth */
+   transition: background-color 0.3s, transform 0.3s;
+   transform-origin: bottom right;  /* Set the origin for the transformation to the bottom right corner of the button */
+}
+
+.new_checklist_button:hover {
+  /* Scale the button up on hover */
+  transform: scale(2);
 }
 
 svg:hover path {
@@ -34,7 +43,7 @@ svg:hover path {
   position: absolute;
   right: 20px; /* 20px from the right */
   bottom: 0px; /* unnecessary */
-  z-index: 10; /* Ensure it stays on top */
+  z-index: 1; /* Ensure it stays on top */
   transform: translateY(50%); /* This will move it 50% of its own height downwards, effectively centering it on the edge */
 
   // to center svg within

@@ -1,5 +1,100 @@
+.navbar-wrapper{
+
+}
+
 #navicon{
   font-size: 30px;
   color: $yellow;
   float: right;
+
+  // positioning above menu:
+  z-index: 4;  /* Ensure the icon stays above other elements */
+  position: relative;  /* z-index only works on positioned elements */
+}
+
+#close-icon {
+  font-size: 40px; // Match the size of the menu icon
+  color: $yellow;
+  float: right;
+
+  // positioning above menu:
+  z-index: 4;  /* Ensure the icon stays above other elements */
+  position: relative;  /* z-index only works on positioned elements */
+}
+
+
+#menu{
+  // works like an overlay to all pages:
+  position: fixed;       // Make it fixed positioned to cover the viewport
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 3;           // To ensure it appears above other content
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: rgba(0, 0, 0, 0.9);  // Optional: Dark background to make it more "modal-like"
+}
+
+.menu-item{
+  color: white;
+  font-size: clamp(3rem, 8vw, 8rem); // clamp() function is a CSS mathematical function that allows you to set a responsive font size (or any other property value) within a specified range. The function takes three arguments: a minimum value, a preferred value, and a maximum value.
+  font-family: "Inter", sans-serif;
+
+  display: block; // to stack the menu lines on top of each other
+  text-decoration: none;
+  padding: clamp(0.25rem, 0.5vw, 1rem) Orem;
+}
+
+#menu-items {
+  margin-right: clamp(4rem, 10vw, 48rem); // ⛔️ edit later
+  position: relative;
+  z-index: 2; // menu items sit above menu-background-pattern
+}
+
+#menu-items:hover > .menu-item {
+  opacity: 0.3; // when something is hovered, by default , all links are less opaque
+}
+
+#menu-items:hover > .menu-item:hover {
+  opacity: 1; // overriding the above condition for the currently hovered link
+}
+
+#menu-background-pattern {
+  height: 100vh;
+  width: 100vw;
+
+  background-image: radial-gradient(circle,
+    rgba(148,187,233,1) 0%,
+    rgba(170,186,222,1) 30%,
+    rgba(193,180,212,1) 60%,
+    rgba(238,174,202,1) 100%
+  );
+
+  background-position: 0% 0%;
+  background-size: 30vmin 30vmin; /* Increase the size of each circle pattern aka have less or more circles */
+
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+
+  transition: opacity 800ms ease, background-size 800ms ease; // smooth transition time for each id set in the id itself
+}
+
+#menu-items:hover ~#menu-background-pattern{
+  background-size: 25vmin 25vmin; // reduce background size on hover
+
+  // TO-DO:
+  background-image: radial-gradient(circle,
+    rgba(148,187,233,0.7) 0%,
+    rgba(170,186,222,0.7) 30%,
+    #ff99e0 60%,
+    #AB3687 100%  /* Changing this to magenta */
+  );
+}
+
+body.no-scroll {
+  overflow: hidden; // will prevent scrolling when the menu is open
 }

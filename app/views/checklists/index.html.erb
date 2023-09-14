@@ -26,11 +26,22 @@
         </div>
 
         <div class="row">
-          <div class="col-1">
-            <%# to-do: status bar %>
+          <div class="col-2">
+            <div class="progress-container">
+              <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+              <% progress_percentage = (completed_tasks_count.to_f / checklist.tasks.count) * 100 %>
+
+              <div class="progress-bar" style="height: <%= progress_percentage %>%;"></div>
+            </div>
           </div>
-          <div class="col-11">
-            <p>3/5 done</p>
+
+          <div class="col-10">
+
+            <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+            <%= content_tag :p, style: "font-size: 20px; font-weight: 600; line-height: 1.15;" do %>
+              <%= "#{completed_tasks_count} / #{checklist.tasks.count}" %><br>
+              done
+            <% end %>
           </div>
         </div>
 
@@ -42,6 +53,6 @@
 
 <div>
   <%= link_to new_checklist_path, class:"new_checklist_button" do %>
-     <%= inline_svg 'plus.svg' %>
+    <%= inline_svg 'plus.svg' %>
   <% end %>
 </div>

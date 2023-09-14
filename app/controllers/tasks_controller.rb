@@ -28,8 +28,13 @@ class TasksController < ApplicationController
   end
 
   def completed
-    @task.update_attribute(:completed, true)
-    redirect_to @checklist, notice: "Task completed"
+    # Toggle the completed status of the task
+    @task.update_attribute(:completed, !@task.completed)
+
+    # Use a conditional to set an appropriate notice message
+    notice_message = @task.completed ? "Task completed" : "Task marked as incomplete"
+
+    redirect_to @checklist, notice: notice_message
   end
 
   private

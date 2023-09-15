@@ -1,0 +1,16 @@
+// for "devise/shared/links" page
+
+.devise-links {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.devise-links a {
+  color: $barbie-pink;
+  text-decoration: none; // to remove the underline
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: darken($barbie-pink, 10%); // Optional: Darken the color a bit on hover for feedback
+  }
+}

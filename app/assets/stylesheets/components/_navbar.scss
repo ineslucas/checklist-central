@@ -66,10 +66,8 @@
   width: 100vw;
 
   background-image: radial-gradient(circle,
-    rgba(148,187,233,1) 0%,
-    rgba(170,186,222,1) 30%,
-    rgba(193,180,212,1) 60%,
-    rgba(238,174,202,1) 100%
+    #ee9cf5 0%,
+    #6dc8bf 100%
   );
 
   background-position: 0% 0%;
@@ -86,12 +84,9 @@
 #menu-items:hover ~#menu-background-pattern{
   background-size: 25vmin 25vmin; // reduce background size on hover
 
-  // TO-DO:
   background-image: radial-gradient(circle,
-    rgba(148,187,233,0.7) 0%,
-    rgba(170,186,222,0.7) 30%,
-    #ff99e0 60%,
-    #AB3687 100%  /* Changing this to magenta */
+    rgba(109,200,191,1) 0%,
+    rgba(197,156,245,1) 100%
   );
 }
 

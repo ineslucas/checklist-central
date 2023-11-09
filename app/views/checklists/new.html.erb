@@ -1,18 +1,24 @@
 <%# form to create new checklist  %>
 <%# could create a class for forms to style all forms %>
 
-<h1 class="todo_list_title">New Checklist</h1>
 
-<%= simple_form_for(@checklist, html: { class: "forms" }) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :category, collection: Checklist.categories.keys %>
-  <%= f.input :description %>
-  <div class="submit-container">
-    <%= f.submit %>
+
+<div class="new_edit_container">
+  <h1>New Checklist</h1>
+
+  <%= simple_form_for(@checklist, html: { class: "forms" }) do |f| %>
+    <div class="new-edit-form-inputs">
+      <%= f.input :title %>
+      <%= f.input :category, collection: Checklist.categories.keys %>
+      <%= f.input :description %>
+    </div>
+    <div class="submit-container">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+
+  <div class="links">
+    <%= link_to 'Back', url_for(:back) %>
   </div>
-<% end %>
-
-
-<div class="links">
-  <%= link_to 'Back', url_for(:back) %>
 </div>

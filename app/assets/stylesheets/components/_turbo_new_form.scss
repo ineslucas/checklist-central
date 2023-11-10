@@ -1,5 +1,20 @@
-// For all classes referring to displaying the New Checklist form on the index.html.erb page:
+// For all classes referring to displaying the New Checklist modal form on the index.html.erb page:
 
 #new-checklist-form {
-  display: none; // so that it's hidden at loading
+  // positioning of the modal form on the bottom right of the page
+  position: fixed;
+  right: 45px; /* 20px from the right */
+  bottom: 45px; /* 20px from the bottom */
+  z-index: 6; /* Ensure it stays on top, button is at z-index 5 */
+
+  // for styling
+  background-color: $magenta;
+  border-radius: 15px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); // TBC
+
+  // to center form contents within
+  display: flex;          /* Convert the form into a flex container */
+  justify-content: center; /* Center children horizontally */
+  align-items: center;     /* Center children vertically */
+  overflow: auto;
 }

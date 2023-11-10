@@ -9,6 +9,7 @@ class ChecklistsController < ApplicationController
 
   def new
     @checklist = Checklist.new
+    # No need for format.html block if you only respond to HTML - might be redundant
     respond_to do |format|
       # format.html
       # format.turbo_stream

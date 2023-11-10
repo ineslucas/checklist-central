@@ -11,7 +11,7 @@
   position: fixed;
   right: 45px; /* 20px from the right */
   bottom: 45px; /* 20px from the bottom */
-  z-index: 10; /* Ensure it stays on top */
+  z-index: 5; /* Ensure it stays on top */
 
   // to center svg within
   display: flex;          /* Convert the button into a flex container */

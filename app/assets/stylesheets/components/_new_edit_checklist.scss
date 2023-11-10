@@ -1,0 +1,72 @@
+.new_edit_container {
+
+}
+
+.new_edit_main_title {
+  text-align: left;
+  color: $barbie-pink;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.new_edit_container form {
+  margin: 0 auto;
+  border-radius: 15px;
+}
+
+.new-edit-form-inputs input[type="text"],
+.new-edit-form-inputs select, /* As in, dropdown */
+.new-edit-form-inputs textarea { /* For the description field */
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 50px; /* Keeping with the circular design language */
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.new-edit-form-inputs input[type="text"]:focus,
+.new-edit-form-inputs select:focus,
+.new-edit-form-inputs textarea:focus {
+  border-color: $barbie-pink;
+  outline: none;
+}
+
+
+// .new-edit-form-inputs select::include_blank - TBC needs to be done in JavaScript
+.new-edit-form-inputs input[type="text"]::placeholder {
+  color: $magenta; // Replace with the color you want
+  opacity: 1; // Optional: browsers may reduce the opacity of the placeholder; set it to 1 to ensure full color intensity
+  margin-left: 0.5rem;
+}
+
+.new-edit-form-inputs textarea::placeholder {
+  color: $magenta; // Replace with the color you want
+  opacity: 1; // Optional: browsers may reduce the opacity of the placeholder; set it to 1 to ensure full color intensity
+  margin-top: 20px;
+}
+
+.new-edit-form-inputs label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "Inter", sans-serif;
+  color: $yellow;
+  font-size: 17px;
+  font-weight: normal;
+}
+
+.submit-button {
+  background-color: $barbie-pink;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 200px;
+}
+
+.submit-button:hover {
+  background-color: darken($barbie-pink, 10%);
+}

@@ -13,6 +13,7 @@
   <body>
     <%= render "shared/flashes" %>  <%# relevant for devise authentication %>
     <%= render "shared/navbar" %>
+    <%= turbo_frame_tag "new_checklist" %>
     <%= yield %>
   </body>
 </html>

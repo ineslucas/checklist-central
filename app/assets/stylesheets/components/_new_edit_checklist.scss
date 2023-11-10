@@ -5,7 +5,8 @@
   margin-bottom: 1.5rem;
 }
 
-.new_edit_container form {
+// deriving from the new_checklist_form ID
+#new_checklist_form form {
   margin: 0 auto;
   border-radius: 15px;
 }

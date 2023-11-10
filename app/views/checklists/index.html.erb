@@ -53,17 +53,11 @@
 </div>
 
 <div data-controller="toggle-new" data-action="click->toggle-new#toggleForm">
+<%# this div did not need to exist TBC %>
   <%= link_to new_checklist_path, class:"new_checklist_button", data: { turbo_frame: 'new_checklist' } do %>
     <%# Makes AJAX request, expecting a Turbo Frame with the ID new_checklist in the response. %>
+    <%# data: { turbo_frame: 'new_checklist' } is what allows us to call the corresponding ID for a turbo frame %>
+    <%# It's not necessary to have Stimulus & the actual form being mentioned in this view - the turbo frame tag is being called in application.html.erb %>
     <%= inline_svg 'plus.svg' %>
-  <% end %>
-</div>
-
-<%# New Checklist Form %>
-<div id="new-checklist-form" class="d-none" data-toggle-new-target="form"> <!-- class list being toggled -->
-  <%# this turbo frame tag might not be properly set %>
-  <%= turbo_frame_tag 'new_checklist', src: new_checklist_path do %>
-    <%# Loading form partial here, but do i even need a partial? %>
-    <%= render 'form', checklist: @checklist %>
   <% end %>
 </div>

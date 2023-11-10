@@ -3,18 +3,31 @@
 #new-checklist-form {
   // positioning of the modal form on the bottom right of the page
   position: fixed;
-  right: 45px; /* 20px from the right */
-  bottom: 45px; /* 20px from the bottom */
+  right: 45px; /* 45px from the right */
+  bottom: 45px; /* 45px from the bottom */
   z-index: 6; /* Ensure it stays on top, button is at z-index 5 */
 
   // for styling
-  background-color: $magenta;
-  border-radius: 15px;
+  background-color: $barbie-pink;
+  border-radius: 50%;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); // TBC
+  overflow: auto;
+  padding: 20px;
+  width: 400px;
+  aspect-ratio: 1 / 1;
 
   // to center form contents within
   display: flex;          /* Convert the form into a flex container */
   justify-content: center; /* Center children horizontally */
   align-items: center;     /* Center children vertically */
-  overflow: auto;
+}
+
+.close-form-button {
+  font-size: 40px;
+  color: $yellow;
+  text-align: center;
+}
+
+.close-form-button:hover {
+  color: $magenta;
 }

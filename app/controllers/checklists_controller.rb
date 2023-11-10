@@ -3,19 +3,30 @@ class ChecklistsController < ApplicationController
 
   def index
     @checklists = Checklist.all
+    @checklist = Checklist.new # Need to make instnce variable available in my index view.
+    # is it possible I'd have to put the respond_to block in here?
   end
 
   def new
     @checklist = Checklist.new
+    respond_to do |format|
+      # format.html
+      # format.turbo_stream
+      format.html { render layout: !request.headers["Turbo-Frame"].present? }
+    end
   end
 
   def create
     @checklist = Checklist.new(checklist_params)
     @checklist.user_id = current_user.id
-    if @checklist.save
-      redirect_to checklist_path(@checklist), notice: 'Checklist created successfully'
-    else
-      render :new
+    respond_to do |format|
+      if @checklist.save
+        format.html { redirect_to checklist_path(@checklist), notice: 'Checklist created successfully' }
+        format.turbo_stream { redirect_to checklist_path(@checklist) }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render :new, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -53,7 +53,16 @@
 </div>
 
 <div>
-  <%= link_to new_checklist_path, class:"new_checklist_button" do %>
+  <%= link_to new_checklist_path, class:"new_checklist_button", data: { turbo_frame: 'new_checklist' } do %>
+    <%# Makes AJAX request, expecting a Turbo Frame with the ID new_checklist in the response. %>
     <%= inline_svg 'plus.svg' %>
+  <% end %>
+</div>
+
+<%# New Checklist Form %>
+<div id="new-checklist-form" class="new-checklist-form">
+  <%= turbo_frame_tag 'new_checklist' do %>
+    <%# Loading form partial here %>
+    <%= render 'form', checklist: @checklist %>
   <% end %>
 </div>

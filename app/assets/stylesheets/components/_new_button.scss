@@ -1,4 +1,4 @@
-.new_checklist_button{
+.new_checklist_button{ // located on the index page
   // for styling
   background-color: $barbie-pink;
   border-radius: 50px;
@@ -23,7 +23,7 @@
    transform-origin: bottom right;  /* Set the origin for the transformation to the bottom right corner of the button */
 }
 
-.new_checklist_button:hover {
+.new_checklist_button:hover { // what happens after you hover the + button on the index page
   /* Scale the button up on hover */
   transform: scale(2);
 }

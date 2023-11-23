@@ -1,28 +1,25 @@
-<%# ⬇️ gets loaded when button gets called. Linked through the new_checklist_path and the turbo tag on application.html.erb, so yes it's looking like I do need a new view due to convention. %>
-<div data-toggle-new-target='form'> <%# 🚨 might have to be changed %>
-  <%= turbo_frame_tag "new_checklist" do %>
-    <div data-controller="toggle-new" id="new-checklist-form">
+<%# ⬇️ gets loaded when button gets called. Linked through the new_checklist_path and the turbo tag on application.html.erb / index.html.erb, so yes it's looking like I do need a new view due to convention. %>
 
-      <%= simple_form_for(@checklist) do |f| %>
-      <%# , html: { data: { turbo_frame: 'new_checklist' }, 'data-toggle-new-target': 'form' } %>
+<%= turbo_frame_tag "new_checklist" do %>
+  <div data-controller="toggle-new" id="new-checklist-form">
 
-        <i data-action="click->toggle-new#close" class="fa-solid fa-xmark fa-rotate-90 close-form-button"></i>
-
-        <%= link_to "Cancel", "#", data: {
+    <%= simple_form_for(@checklist) do |f| %>
+      <%= link_to "#", data: {
         controller: "toggle-new",
         action: "toggle-new#close"
-      }, class: "close-form-button" %>
-
-        <div class="new-edit-form-inputs">
-          <%= f.input :title, label: false, required: false, placeholder: "Name your checklist" %> <!-- required: false removes the asterisk but not the database requirement -->
-          <%= f.input :category, label: false, collection: Checklist.categories.keys, required: false, include_blank: "Choose your category" %>
-          <%= f.input :description, label: false, required: false, placeholder: "What's this checklist about?" %>
-        </div>
-        <div class="submit-container">
-          <%= f.submit "Create checklist", class: "submit-button" %>
-        </div>
+      }, class: "close-form-button" do %>
+        <i class="fa-solid fa-xmark fa-rotate-90"></i>
       <% end %>
 
-    </div>
-  <% end %>
-</div>
+      <div class="new-edit-form-inputs">
+        <%= f.input :title, label: false, required: false, placeholder: "Name your checklist" %> <!-- required: false removes the asterisk but not the database requirement -->
+        <%= f.input :category, label: false, collection: Checklist.categories.keys, required: false, include_blank: "Choose your category" %>
+        <%= f.input :description, label: false, required: false, placeholder: "What's this checklist about?" %>
+      </div>
+      <div class="submit-container">
+        <%= f.submit "Create checklist", class: "submit-button" %>
+      </div>
+    <% end %>
+
+  </div>
+<% end %>

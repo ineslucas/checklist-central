@@ -4,29 +4,40 @@ export default class extends Controller {
   static targets = [ "form", "button" ]
 
   connect() {
-    console.log("Hello from toggle_new_controller.js"); // working
+    console.log("Hello from toggle_new_controller.js"); // ✅
   }
 
   toggleForm(){
-    console.log("New checklist button clicked"); // button is not binded to this controller yet!
-    // this.buttonTarget.classList.toggle("d-none");
-    // introduce an if statement to check if form is visible or not!
-    this.formTarget.classList.toggle("d-none");
-    // or maybe it's bc visible does not correspond to display none! TBC tomorrow!
+    console.log("New checklist button has been clicked.");
+    // Is this function reaching the button? Yes.
+    // Is this function reaching the form? Yes.
+
+    if (this.formTarget.classList.contains("d-none")){
+      // if form is hidden,
+      this.buttonTarget.classList.remove("d-none"); // show button
+      this.formTarget.classList.add("d-none"); // hide form
+    } else {
+      // if form is visible,
+      this.buttonTarget.classList.add("d-none"); // hide button
+      this.formTarget.classList.remove("d-none"); // show form
+    }
+
+    // Note that classList.toggle did not work.
   }
 
   close(){
-    const newChecklistForm = document.getElementById("new-checklist-form"); // TBC refactor into Stimulus code
-    newChecklistForm.classList.add("d-none"); // making form not display
-    console.log("form from close function reached", newChecklistForm); // working
+    // Is this function reaching the button? No. Only through a Vanilla JS ID.
+    // Is this function reaching the form? Yes.
+
+    /* Form dissapears */
+    const newChecklistForm = document.getElementById("new-checklist-form"); // TBC - refactor into Stimulus code.
+    newChecklistForm.classList.add("d-none");
+
+      // also works - too fast for the eye.
+      // this.formTarget.classList.add("d-none");
 
     /* Button reppears */
-    // target button and remove d-none class from button
-    console.log("button from close function reached", this.buttonTarget);
-    // this.buttonTarget.classList.remove("d-none");
+    const newChecklistButton = document.getElementById("new-checklist-button");
+    newChecklistButton.classList.remove("d-none");
   }
 }
-
-// TBC - remove new_button when form is visible && animations
-
-// maybe just need to do an if it's visible get the button to become

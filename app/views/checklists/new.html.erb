@@ -4,22 +4,35 @@
   <div data-controller="toggle-new" id="new-checklist-form">
 
     <%= simple_form_for(@checklist) do |f| %>
-      <%= link_to "#", data: {
-        controller: "toggle-new",
-        action: "toggle-new#close"
-      }, class: "close-form-button" do %>
-        <i class="fa-solid fa-xmark fa-rotate-90"></i>
-      <% end %>
+      <div class="container">
 
-      <div class="new-edit-form-inputs">
-        <%= f.input :title, label: false, required: false, placeholder: "Name your checklist" %> <!-- required: false removes the asterisk but not the database requirement -->
-        <%= f.input :category, label: false, collection: Checklist.categories.keys, required: false, include_blank: "Choose your category" %>
-        <%= f.input :description, label: false, required: false, placeholder: "What's this checklist about?" %>
-      </div>
-      <div class="submit-container">
-        <%= f.submit "Create checklist", class: "submit-button" %>
+        <div class="row">
+          <%= link_to "#", data: {
+            controller: "toggle-new",
+            action: "toggle-new#close"
+          }, class: "close-form-button" do %>
+            <i class="fa-solid fa-xmark fa-rotate-90"></i>
+          <% end %>
+        </div>
+
+        <div class="row">
+          <div class="new-edit-form-inputs">
+            <%= f.input :title, label: false, required: false, placeholder: "Name your checklist" %> <!-- required: false removes the asterisk but not the database requirement -->
+            <%= f.input :category, label: false, collection: Checklist.categories.keys, required: false, include_blank: "Choose your category" %>
+            <%= f.input :description, label: false, required: false, placeholder: "What's this checklist about?" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <%# <%= f.button :submit, class: "submit-button" do %>
+            <%# <i class="fa-solid fa-check"></i> %>
+          <%# <% end %>
+
+          <button type="submit" class="submit-button"><i class="fa-solid fa-check"></i></button>
+
+        </div>
+
       </div>
     <% end %>
-
   </div>
 <% end %>

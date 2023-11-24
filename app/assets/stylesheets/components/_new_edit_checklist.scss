@@ -14,7 +14,7 @@
 }
 
 .new-edit-form-inputs input[type="text"],
-.new-edit-form-inputs select, /* As in, dropdown */
+.new-edit-form-inputs select, /* As in, dropdown with categories */
 .new-edit-form-inputs textarea { /* For the description field */
   width: 100%;
   padding: 10px 15px;
@@ -24,6 +24,8 @@
   font-family: "Inter", sans-serif;
   transition: border-color 0.3s ease;
 }
+
+
 
 .new-edit-form-inputs input[type="text"]:focus,
 .new-edit-form-inputs select:focus,
@@ -56,16 +58,15 @@
 }
 
 .submit-button {
-  background-color: $barbie-pink;
-  color: white;
-  padding: 10px 25px;
+  font-size: 40px;
+  color: $yellow;
+  text-align: center;
   border: none;
-  border-radius: 50px;
+  background-color: transparent;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  max-width: 200px;
 }
 
 .submit-button:hover {
-  background-color: darken($barbie-pink, 10%);
+  color: $magenta;
 }

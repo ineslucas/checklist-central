@@ -8,7 +8,7 @@
   float: right;
 
   // positioning above menu:
-  z-index: 4;  /* Ensure the icon stays above other elements */
+  z-index: 14;  /* Ensure the icon stays above other elements */
   position: relative;  /* z-index only works on positioned elements */
 }
 
@@ -18,7 +18,7 @@
   float: right;
 
   // positioning above menu:
-  z-index: 4;  /* Ensure the icon stays above other elements */
+  z-index: 14;  /* Ensure the icon stays above other elements */
   position: relative;  /* z-index only works on positioned elements */
 }
 
@@ -30,7 +30,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 3;           // To ensure it appears above other content
+  z-index: 13;           // To ensure it appears above other content
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -50,7 +50,7 @@
 #menu-items {
   margin-right: clamp(4rem, 10vw, 48rem); // ⛔️ edit later
   position: relative;
-  z-index: 2; // menu items sit above menu-background-pattern
+  z-index: 12; // menu items sit above menu-background-pattern
 }
 
 #menu-items:hover > .menu-item {
@@ -76,7 +76,7 @@
   position: absolute;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 11;
 
   transition: opacity 800ms ease, background-size 800ms ease; // smooth transition time for each id set in the id itself
 }

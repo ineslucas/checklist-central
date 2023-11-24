@@ -1,12 +1,10 @@
-<h1 class="todo_list_title">Edit your to-do list</h1>
+<h1>Edit your to-do list</h1>
 
 <%= simple_form_for(@checklist, html: { class: "forms" }) do |f| %>
   <%= f.input :title %>
   <%= f.input :category, collection: Checklist.categories.keys %>
   <%= f.input :description %>
-  <div class="submit-container">
-    <%= f.submit %>
-  </div>
+  <%= f.submit "Edit checklist", class: "submit-button" %>
 <% end %>
 
 <div class="links">

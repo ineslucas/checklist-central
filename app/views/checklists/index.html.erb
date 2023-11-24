@@ -17,9 +17,8 @@
 
         <div class="row">
           <div class="col-10">
-            <h2 class="checklist_title todo_list_title"><%= checklist.title %></h2>
-            <%# todo_list_title class to be retired 🍓 %>
-            <p class="checklist_description todo_list_sub_title"><%= checklist.description %></p>
+            <h2 class="checklist_title"><%= checklist.title %></h2>
+            <p class="checklist_description"><%= checklist.description %></p>
           </div>
           <div class="col-2">
             <%= inline_svg 'link.svg' %>
@@ -52,8 +51,24 @@
   <% end %>
 </div>
 
-<div>
-  <%= link_to new_checklist_path, class:"new_checklist_button" do %>
-    <%= inline_svg 'plus.svg' %>
-  <% end %>
+
+<div data-controller="toggle-new">
+
+  <div data-action="click->toggle-new#toggleForm">
+    <%# NEW CHECKLIST BUTTON %>
+    <%= link_to new_checklist_path, data: { turbo_frame: 'new_checklist' } do %>  <%# data: { turbo_frame: 'new_checklist' } is what allows us to call the corresponding ID for a turbo frame %>
+      <div id="new-checklist-button" class="new_checklist_button" data-toggle-new-target="button">
+        <%# Makes AJAX request, expecting a Turbo Frame with the ID new_checklist in the response. %>
+        <%# It's not necessary to have Stimulus & the actual form being mentioned in this view - the turbo frame tag is being called in application.html.erb %>
+        <%= inline_svg 'plus.svg' %>
+      </div>
+    <% end %>
+  </div>
+
+  <%# TBC: create logic for if the user is logged in or not %>
+
+  <%# FORM via TURBO FRAME %>
+  <div data-toggle-new-target='form'>
+    <%= turbo_frame_tag "new_checklist" %> <%# was being called in application.html.erb so it could be available for the whole application. by being called here it allows us to put a target on it %>
+  </div>
 </div>

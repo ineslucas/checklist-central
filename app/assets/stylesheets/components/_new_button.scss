@@ -32,11 +32,12 @@ svg:hover path {
   fill: $yellow; /* Change fill color on hover */
 }
 
-.new-task-button{ // TBC turned into editing button
+.edit-button{ // TBC turned into editing button
   background-color: $green;
+  color: black;
   border-radius: 50px;
-  height: 45px;
-  width: 45px;
+  height: 55px;
+  width: 55px;
   padding: 10px;
 
   // for positioning

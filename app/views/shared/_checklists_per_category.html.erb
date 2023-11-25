@@ -1,0 +1,186 @@
+<div data-controller="filter">
+
+  <div class="filters-container">
+    <div data-action="click->filter#showAll" class="status-selected" data-filter-target="allButton">all</div>
+    <div data-action="click->filter#showGym" data-filter-target="gymButton" class="status-unselected">gym</div>
+    <div data-action="click->filter#showAirport" class="status-unselected" data-filter-target="airportButton">airport</div>
+    <div data-action="click->filter#showOther" class="status-unselected" data-filter-target="otherButton">other</div>
+  </div>
+
+  <%# Wrapping all instances of checklist %>
+  <div data-filter-target="allChecklists" class="checklists-grid">
+    <% @checklists.each do |checklist| %>
+
+      <%# classes wrapping up title and description %>
+      <div class="checklist_container <%= checklist.category %>">
+        <%= link_to checklist_path(checklist) do %>
+
+          <div class="row">
+            <div class="col-10">
+              <h2 class="checklist_title"><%= checklist.title %></h2>
+              <p class="checklist_description"><%= checklist.description %></p>
+            </div>
+            <div class="col-2">
+              <%= inline_svg 'link.svg' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2">
+              <div class="progress-container">
+                <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+                <% progress_percentage = (completed_tasks_count.to_f / checklist.tasks.count) * 100 %>
+
+                <div class="progress-bar" style="height: <%= progress_percentage %>%;"></div>
+              </div>
+            </div>
+
+            <div class="col-10">
+
+              <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+              <%= content_tag :p, style: "font-size: 20px; font-weight: 600; line-height: 1.15;" do %>
+                <%= "#{completed_tasks_count} / #{checklist.tasks.count}" %><br>
+                done
+              <% end %>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+
+  <%# Wrapping all instances of gym %>
+  <div data-filter-target="gymChecklists" class="checklists-grid d-none">
+    <% @checklists.where(category: :gym).each do |checklist| %>
+
+      <%# classes wrapping up title and description %>
+      <div class="checklist_container <%= checklist.category %>">
+        <%= link_to checklist_path(checklist) do %>
+
+          <div class="row">
+            <div class="col-10">
+              <h2 class="checklist_title"><%= checklist.title %></h2>
+              <p class="checklist_description"><%= checklist.description %></p>
+            </div>
+            <div class="col-2">
+              <%= inline_svg 'link.svg' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2">
+              <div class="progress-container">
+                <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+                <% progress_percentage = (completed_tasks_count.to_f / checklist.tasks.count) * 100 %>
+
+                <div class="progress-bar" style="height: <%= progress_percentage %>%;"></div>
+              </div>
+            </div>
+
+            <div class="col-10">
+
+              <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+              <%= content_tag :p, style: "font-size: 20px; font-weight: 600; line-height: 1.15;" do %>
+                <%= "#{completed_tasks_count} / #{checklist.tasks.count}" %><br>
+                done
+              <% end %>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+
+   <%# Wrapping all instances of airport %>
+  <div data-filter-target="airportChecklists" class="checklists-grid d-none">
+    <% @checklists.where(category: :airport).each do |checklist| %>
+
+      <%# classes wrapping up title and description %>
+      <div class="checklist_container <%= checklist.category %>">
+        <%= link_to checklist_path(checklist) do %>
+
+          <div class="row">
+            <div class="col-10">
+              <h2 class="checklist_title"><%= checklist.title %></h2>
+              <p class="checklist_description"><%= checklist.description %></p>
+            </div>
+            <div class="col-2">
+              <%= inline_svg 'link.svg' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2">
+              <div class="progress-container">
+                <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+                <% progress_percentage = (completed_tasks_count.to_f / checklist.tasks.count) * 100 %>
+
+                <div class="progress-bar" style="height: <%= progress_percentage %>%;"></div>
+              </div>
+            </div>
+
+            <div class="col-10">
+
+              <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+              <%= content_tag :p, style: "font-size: 20px; font-weight: 600; line-height: 1.15;" do %>
+                <%= "#{completed_tasks_count} / #{checklist.tasks.count}" %><br>
+                done
+              <% end %>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+
+  <%# Wrapping all instances of roadtrip and other %>
+  <div data-filter-target="otherChecklists" class="checklists-grid d-none">
+    <% @checklists.where(category: [:roadtrip, :other]).each do |checklist| %>
+
+      <%# classes wrapping up title and description %>
+      <div class="checklist_container <%= checklist.category %>">
+        <%= link_to checklist_path(checklist) do %>
+
+          <div class="row">
+            <div class="col-10">
+              <h2 class="checklist_title"><%= checklist.title %></h2>
+              <p class="checklist_description"><%= checklist.description %></p>
+            </div>
+            <div class="col-2">
+              <%= inline_svg 'link.svg' %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2">
+              <div class="progress-container">
+                <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+                <% progress_percentage = (completed_tasks_count.to_f / checklist.tasks.count) * 100 %>
+
+                <div class="progress-bar" style="height: <%= progress_percentage %>%;"></div>
+              </div>
+            </div>
+
+            <div class="col-10">
+
+              <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+              <%= content_tag :p, style: "font-size: 20px; font-weight: 600; line-height: 1.15;" do %>
+                <%= "#{completed_tasks_count} / #{checklist.tasks.count}" %><br>
+                done
+              <% end %>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+
+</div>

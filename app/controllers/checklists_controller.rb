@@ -22,12 +22,19 @@ class ChecklistsController < ApplicationController
     @checklist.user_id = current_user.id
     respond_to do |format|
       if @checklist.save
-        format.html { redirect_to @checklist, notice: 'Checklist created successfully' }
-        format.turbo_stream { redirect_to @checklist, notice: 'Checklist created successfully'}
-        format.json # Follows the classic Rails flow and look for a create.json view
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append(
+            :allChecklists, # Need to ensure that the :allChecklists symbol matches the ID of the container in my index.html.erb/new.html.erb file where you want to append the new checklist.
+            partial: "checklists/checklist",
+            locals: { checklist: @checklist }
+          )
+        end
+        # format.html { redirect_to @checklist, notice: 'Checklist created successfully' }
+        # format.json # Follows the classic Rails flow and look for a create.json view
+        # format.html { redirect_to checklists_url }
       else
-        format.html { render :new, status: :unprocessable_entity }
         format.turbo_stream { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
         format.json # Follows the classic Rails flow and look for a create.json view
       end
     end

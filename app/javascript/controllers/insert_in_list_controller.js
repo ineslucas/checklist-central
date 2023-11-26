@@ -18,3 +18,4 @@ export default class extends Controller {
 }
 
 // I removed the static target of form because it was not picking it up. Because the form is not a direct child of the controller element. It was inside an entirely different view
+

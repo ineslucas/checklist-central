@@ -8,14 +8,13 @@
   </div>
 
   <div data-insert-in-list-target="grid">
-    <%# Wrapping all instances of checklist %>
-    <div data-filter-target="allChecklists" class="checklists-grid">
+    <%# Wrapping all instances of checklist, with id of allChecklists to handle turbo stream append action %>
+    <div id="allChecklists" data-filter-target="allChecklists" class="checklists-grid">
+      <%# Existing checklists %>
       <% @checklists.each do |checklist| %>
-
         <%# classes wrapping up title and description %>
         <div class="checklist_container <%= checklist.category %>">
           <%= link_to checklist_path(checklist) do %>
-
             <div class="row">
               <div class="col-10">
                 <h2 class="checklist_title"><%= checklist.title %></h2>
@@ -25,7 +24,6 @@
                 <%= inline_svg 'link.svg' %>
               </div>
             </div>
-
             <div class="row">
               <div class="col-2">
                 <div class="progress-container">
@@ -45,15 +43,13 @@
                 <% end %>
               </div>
             </div>
-
           <% end %>
         </div>
-
       <% end %>
     </div>
 
     <%# Wrapping all instances of gym %>
-    <div data-filter-target="gymChecklists" class="checklists-grid d-none">
+    <div id="gymChecklists" data-filter-target="gymChecklists" class="checklists-grid d-none">
       <% @checklists.where(category: :gym).each do |checklist| %>
 
         <%# classes wrapping up title and description %>

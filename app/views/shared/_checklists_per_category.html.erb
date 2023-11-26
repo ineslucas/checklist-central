@@ -93,7 +93,7 @@
     </div>
 
     <%# Wrapping all instances of airport %>
-    <div data-filter-target="airportChecklists" class="checklists-grid d-none">
+    <div id="airportChecklists" data-filter-target="airportChecklists" class="checklists-grid d-none">
       <% @checklists.where(category: :airport).each do |checklist| %>
 
         <%# classes wrapping up title and description %>
@@ -137,7 +137,7 @@
     </div>
 
     <%# Wrapping all instances of roadtrip and other %>
-    <div data-filter-target="otherChecklists" class="checklists-grid d-none">
+    <div id="otherChecklists" data-filter-target="otherChecklists" class="checklists-grid d-none">
       <% @checklists.where(category: [:roadtrip, :other]).each do |checklist| %>
 
         <%# classes wrapping up title and description %>

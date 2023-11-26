@@ -23,15 +23,29 @@ class ChecklistsController < ApplicationController
     respond_to do |format|
       if @checklist.save
         format.turbo_stream do
-          render turbo_stream: turbo_stream.append(
-            :allChecklists, # Need to ensure that the :allChecklists symbol matches the ID of the container in my index.html.erb/new.html.erb file where you want to append the new checklist.
-            partial: "checklists/checklist",
-            locals: { checklist: @checklist }
-          )
+          streams = []
+          # Ensure that the :allChecklists symbol matches the ID of the container in my index.html.erb/new.html.erb file where you want to append the new checklist.
+          streams << turbo_stream.append(:allChecklists, partial: "checklists/checklist", locals: { checklist: @checklist })
+
+          # Appending to specific categories' containers
+          if @checklist.category == "gym"
+            streams << turbo_stream.append(:gymChecklists, partial: "checklists/checklist", locals: { checklist: @checklist })
+          end
+
+          if @checklist.category == "airport"
+            streams << turbo_stream.append(:airportChecklists, partial: "checklists/checklist", locals: { checklist: @checklist })
+          end
+
+          if @checklist.category == "roadtrip" || "other"
+            streams << turbo_stream.append(:otherChecklists, partial: "checklists/checklist", locals: { checklist: @checklist })
+          end
+
+          # Rendering the streams, there will be 2 stored - one for all and one for the specific category
+          render turbo_stream: streams
         end
-        # format.html { redirect_to @checklist, notice: 'Checklist created successfully' }
-        # format.json # Follows the classic Rails flow and look for a create.json view
-        # format.html { redirect_to checklists_url }
+
+        format.html { redirect_to @checklist, notice: 'Checklist created successfully' }
+        format.json # Follows the classic Rails flow and look for a create.json view
       else
         format.turbo_stream { render :new, status: :unprocessable_entity }
         format.html { render :new, status: :unprocessable_entity }

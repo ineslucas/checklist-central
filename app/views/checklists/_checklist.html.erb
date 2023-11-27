@@ -1,0 +1,32 @@
+<%# This is the partial in which the newly checklist will be viewed %>
+<%# Each checklist has a unique identifier, such as using its database ID. %>
+
+<div class="checklist_container <%= checklist.category %>" id="<%= dom_id(checklist) %>">
+  <%= link_to checklist_path(checklist) do %>
+    <div class="row">
+      <div class="col-10">
+        <h2 class="checklist_title"><%= checklist.title %></h2>
+        <p class="checklist_description"><%= checklist.description %></p>
+      </div>
+      <div class="col-2">
+        <%= inline_svg 'link.svg' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <div class="progress-container">
+          <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+          <% progress_percentage = (completed_tasks_count.to_f / checklist.tasks.count) * 100 %>
+          <div class="progress-bar" style="height: <%= progress_percentage %>%;"></div>
+        </div>
+      </div>
+      <div class="col-10">
+        <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
+        <%= content_tag :p, style: "font-size: 20px; font-weight: 600; line-height: 1.15;" do %>
+          <%= "#{completed_tasks_count} / #{checklist.tasks.count}" %><br>
+          done
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

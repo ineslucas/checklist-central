@@ -1,7 +1,7 @@
 // for all CSS referring to the show page for each checklist & subsequent tasks
 .show-container{
   display: flex;
-  justify-content: start;
+  justify-content: center;
   margin-top: 60px;
   gap: 40px; // allows there for the grid gap to be responsive
   padding-right: 0px;
@@ -15,7 +15,7 @@
 }
 
 .show-title-container{
-  background-color: $purple;
+  /* Each container has its' color according to category @ _home.scss  */
   border-radius: 30px;
   aspect-ratio: 1 / 1;
   padding: 30px;

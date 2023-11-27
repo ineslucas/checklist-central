@@ -1,74 +1,25 @@
 <h1 class="main_title">checklist <br> central </h1>
 
-<div class="filters-container">
-  <div data-controller="filter" class="status-selected">all</div>
-  <div class="status-unselected">gym</div>
-  <div class="status-unselected">airport</div>
-  <div class="status-unselected">other</div>
-</div>
+<div data-controller="insert-in-list">
+  <%= render 'shared/checklists_per_category' %>
 
-<%# class wrapping all instances of checklist %>
-<div class="checklists-grid">
-  <% @checklists.each do |checklist| %>
-
-    <%# classes wrapping up title and description %>
-    <div class="checklist_container <%= checklist.category %>">
-      <%= link_to checklist_path(checklist) do %>
-
-        <div class="row">
-          <div class="col-10">
-            <h2 class="checklist_title"><%= checklist.title %></h2>
-            <p class="checklist_description"><%= checklist.description %></p>
-          </div>
-          <div class="col-2">
-            <%= inline_svg 'link.svg' %>
-          </div>
+  <div data-controller="toggle-new">
+    <div data-action="click->toggle-new#toggleForm">
+      <%# NEW CHECKLIST BUTTON %>
+      <%= link_to new_checklist_path, data: { turbo_frame: 'new_checklist' } do %>  <%# data: { turbo_frame: 'new_checklist' } is what allows us to call the corresponding ID for a turbo frame %>
+        <div id="new-checklist-button" class="new_checklist_button" data-toggle-new-target="button">
+          <%# Makes AJAX request, expecting a Turbo Frame with the ID new_checklist in the response. %>
+          <%# It's not necessary to have Stimulus & the actual form being mentioned in this view - the turbo frame tag is being called in application.html.erb %>
+          <%= inline_svg 'plus.svg' %>
         </div>
-
-        <div class="row">
-          <div class="col-2">
-            <div class="progress-container">
-              <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
-              <% progress_percentage = (completed_tasks_count.to_f / checklist.tasks.count) * 100 %>
-
-              <div class="progress-bar" style="height: <%= progress_percentage %>%;"></div>
-            </div>
-          </div>
-
-          <div class="col-10">
-
-            <% completed_tasks_count = checklist.tasks.where(completed: true).count %>
-            <%= content_tag :p, style: "font-size: 20px; font-weight: 600; line-height: 1.15;" do %>
-              <%= "#{completed_tasks_count} / #{checklist.tasks.count}" %><br>
-              done
-            <% end %>
-          </div>
-        </div>
-
       <% end %>
     </div>
 
-  <% end %>
-</div>
+    <%# TBC: create logic for if the user is logged in or not %>
 
-
-<div data-controller="toggle-new">
-
-  <div data-action="click->toggle-new#toggleForm">
-    <%# NEW CHECKLIST BUTTON %>
-    <%= link_to new_checklist_path, data: { turbo_frame: 'new_checklist' } do %>  <%# data: { turbo_frame: 'new_checklist' } is what allows us to call the corresponding ID for a turbo frame %>
-      <div id="new-checklist-button" class="new_checklist_button" data-toggle-new-target="button">
-        <%# Makes AJAX request, expecting a Turbo Frame with the ID new_checklist in the response. %>
-        <%# It's not necessary to have Stimulus & the actual form being mentioned in this view - the turbo frame tag is being called in application.html.erb %>
-        <%= inline_svg 'plus.svg' %>
-      </div>
-    <% end %>
-  </div>
-
-  <%# TBC: create logic for if the user is logged in or not %>
-
-  <%# FORM via TURBO FRAME %>
-  <div data-toggle-new-target='form'>
-    <%= turbo_frame_tag "new_checklist" %> <%# was being called in application.html.erb so it could be available for the whole application. by being called here it allows us to put a target on it %>
+    <%# FORM via TURBO FRAME %>
+    <div data-toggle-new-target='form'>
+      <%= turbo_frame_tag "new_checklist" %> <%# was being called in application.html.erb so it could be available for the whole application. by being called here it allows us to put a target on it %>
+    </div>
   </div>
 </div>

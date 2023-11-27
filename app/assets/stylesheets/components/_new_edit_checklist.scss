@@ -1,6 +1,6 @@
 /* Page with CSS relevant for the CONTENT inside the new and edit forms */
 
-.new_edit_main_title {
+.new-edit-main-title {
   text-align: left;
   color: $barbie-pink;
   font-family: "Inter", sans-serif;
@@ -8,7 +8,7 @@
 }
 
 // deriving from the new_checklist_form ID
-#new_checklist_form form {
+#new-checklist-form form {
   margin: 0 auto;
   border-radius: 15px;
 }
@@ -49,7 +49,7 @@
   margin-top: 20px;
 }
 
-// Placeholder for select element CSS support is not yet available in all browsers. Work in progress. 
+// Placeholder for select element CSS support is not yet available in all browsers. Work in progress.
 // #checklist_category option[value=""] {
 //   color: $magenta;
 // }

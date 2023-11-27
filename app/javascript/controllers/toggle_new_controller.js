@@ -5,6 +5,11 @@ export default class extends Controller {
 
   connect() {
     console.log("Hello from toggle_new_controller.js"); // ✅
+
+    // Listen for turbo stream events
+    // document.addEventListener("turbo:render", () => {
+    //   this.hideFormAndShowButton();
+    // });
   }
 
   toggleForm(){
@@ -30,14 +35,32 @@ export default class extends Controller {
     // Is this function reaching the form? Yes.
 
     /* Form dissapears */
-    const newChecklistForm = document.getElementById("new-checklist-form"); // TBC - refactor into Stimulus code.
+    const newChecklistForm = document.getElementById("new-checklist-form");
     newChecklistForm.classList.add("d-none");
-
-      // also works - too fast for the eye.
-      // this.formTarget.classList.add("d-none");
+      // this.formTarget.classList.add("d-none"); // also works - too fast for the eye.
 
     /* Button reppears */
     const newChecklistButton = document.getElementById("new-checklist-button");
     newChecklistButton.classList.remove("d-none");
+  }
+
+  hideFormAndShowButtonAfterFormSubmission() {
+    console.log("hideFormAndShowButtonAfterFormSubmission() has been called.");
+
+    const newChecklistForm = document.getElementById("new-checklist-form");
+    const newChecklistButton = document.getElementById("new-checklist-button");
+
+    if (newChecklistForm && newChecklistButton) {
+      // Hide the form
+      newChecklistForm.classList.add("d-none");
+      // Show the button
+      newChecklistButton.classList.remove("d-none");
+
+      window.scrollTo({
+        // top: document.body.scrollHeight, // Scroll to the bottom of the page (the scrollHeight has been measured at the first load of the page)
+        top: 0, // scroll to the top of the page
+        behavior: 'smooth'
+      });
+    }
   }
 }

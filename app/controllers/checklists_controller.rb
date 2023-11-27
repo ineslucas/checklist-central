@@ -3,8 +3,8 @@ class ChecklistsController < ApplicationController
 
   def index
     @checklists = Checklist.all
+    @checklists = Checklist.order(created_at: :desc) # Fetching checklists in descending order of creation time.
     @checklist = Checklist.new # Need to make instnce variable available in my index view.
-    # Do I need to add the respond_to block here as well?
   end
 
   def new

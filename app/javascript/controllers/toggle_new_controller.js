@@ -56,9 +56,9 @@ export default class extends Controller {
       // Show the button
       newChecklistButton.classList.remove("d-none");
 
-      // Scroll to the bottom of the page (the scrollHeight has been measured at the first load of the page)
       window.scrollTo({
-        top: document.body.scrollHeight,
+        // top: document.body.scrollHeight, // Scroll to the bottom of the page (the scrollHeight has been measured at the first load of the page)
+        top: 0, // scroll to the top of the page
         behavior: 'smooth'
       });
     }

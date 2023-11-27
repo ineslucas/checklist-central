@@ -1,4 +1,5 @@
-// THIS CONTROLLER MIGHT BE USELESS AND THEREFORE NEEDS TO BE DELETED
+// THIS CONTROLLER MIGHT BE OBSOLETE AND THEREFORE NEEDS TO BE DELETED
+
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-in-list"

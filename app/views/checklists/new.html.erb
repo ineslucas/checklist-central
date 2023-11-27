@@ -3,7 +3,7 @@
 <%= turbo_frame_tag "new_checklist" do %>
   <div data-controller="toggle-new" id="new-checklist-form">
 
-    <%= simple_form_for(@checklist) do |f| %>
+    <%= simple_form_for(@checklist, data: { action: "turbo:submit-end->toggle-new#hideFormAndShowButtonAfterFormSubmission" }) do |f| %>
     <%# <%= simple_form_for(@checklist, data: { turbo: false }) do |f| - would allow to redirect by disabling turbo %>
       <div class="container">
 

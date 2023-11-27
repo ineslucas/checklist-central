@@ -1,3 +1,4 @@
+// THIS CONTROLLER MIGHT BE USELESS AND THEREFORE NEEDS TO BE DELETED
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-in-list"
@@ -18,4 +19,3 @@ export default class extends Controller {
 }
 
 // I removed the static target of form because it was not picking it up. Because the form is not a direct child of the controller element. It was inside an entirely different view
-// DELETE

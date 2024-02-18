@@ -1,6 +1,6 @@
 ![image](https://github.com/ineslucas/checklist-central/assets/122114360/20404a1c-ad92-4fef-b705-f05f4e167e45)
 
-Checklist Central helps you get ready for repeating activities, allowing you to automate your packing.
+Checklist Central helps you get ready for repeating activities, allowing you to automate your packing. Ongoing project in Ruby on Rails with Stimulus JS and Turbo.
 
 Run server with rails s.
 

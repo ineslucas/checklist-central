@@ -17,15 +17,6 @@ I created it because everytime I go to the gym, an event or a trip, I typically 
 - **Stimulus JS:** Incorporated to enhance the interactivity of the application without the need for complex JavaScript frameworks.
 - **Turbo Frames and Streams:** Used to streamline navigation and actions without the full page reloads, making the application faster and more responsive.
 
-## 📅 Current Status
-
-The project is under development, with specific attention to:
-
-- Finalizing the implementation of key missing features such as the task reset functionality.
-- Styling enhancements for Show and Edit pages to improve usability and visual appeal.
-- Achieving mobile responsiveness to ensure accessibility on all devices.
-- Deployment.
-
 ## 🌱 Learning Outcomes
 
 - **Integrating Rails with Modern JavaScript:** Exploring the integration of Stimulus JS and Turbo within a Rails application to enhance interactivity and responsiveness.
@@ -34,8 +25,12 @@ The project is under development, with specific attention to:
 
 ## 🚧 Next Steps
 
-- **Completing Missing Features:** Prioritizing the development of the reset functionality, page styling, and mobile responsiveness.
-- **Deployment:** Planning for the future deployment of Checklist Central to share this tool with people looking to streamline their task management processes.
+The project is under development, with specific attention to:
+
+- Finalizing the implementation of key missing features such as the task reset functionality.
+- Styling enhancements for Show and Edit pages to improve usability and visual appeal.
+- Achieving mobile responsiveness to ensure accessibility on all devices.
+- Deployment.
 
 Checklist Central blends technical development skills with a keen eye for design, showcasing the potential of Ruby on Rails in creating applications that are not only functional but also visually appealing and user-friendly.
 
